@@ -1,0 +1,24 @@
+<!--room.wxml-->
+
+<scroll-view scroll-y="true" style="height:600px" bindscrolltolower="lower">
+  <block wx:for="{{rooms}}" wx:key="id" wx:for-index="roomkey">
+  <view style="clear:both;" class="room">
+    <view class="flex-wrap flex-row room-header">
+      <view class="flex-item room-title">{{item.title}}</view>
+      <view class="flex-item flex-wrap flex-col">
+        <view class="flex-item room-type tip-node">{{item.type}}</view>
+        <view class="flex-item room-status tip-node">{{item.status}}</view>
+      </view>
+      <button size="mini" type="primary" class="flex-item">落座</button>
+    </view>
+    <view class="flex-wrap flex-col room-body">
+      <view class="flex-item flex-wrap flex-row">
+        <view class="flex-item flex-wrap flex-row" wx:for="{{item.players}}" wx:for-item="player" wx:for-index="playerkey" wx:key="{{id}}">
+          <image class="flex-item userinfo-avatar" src="{{player.face}}" background-size="cover" data-room="{{roomkey}}" data-player="{{playerkey}}" bindtap="showNick"></image>
+          <view class="flex-item userinfo-nick" wx:if="{{player.showNick == true}}">{{player.nick}}</view>
+        </view>
+      </view>
+    </view>
+  </view> 
+  </block>
+</scroll-view>

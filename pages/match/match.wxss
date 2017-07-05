@@ -1,0 +1,5 @@
+/* match.wxss */
+
+.room {
+  width: 100%;
+}

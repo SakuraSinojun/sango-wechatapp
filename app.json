@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/room/room",
+    "pages/match/match"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "grey",
+    "backgroundColor": "#f9f9f9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人",
+        "iconPath": "images/Buuf_et_17.png",
+        "selectedIconPath": "images/Buuf_et_17.png"
+      },
+      {
+        "pagePath": "pages/room/room",
+        "text": "房间",
+        "iconPath": "images/Buuf_et_17.png",
+        "selectedIconPath": "images/Buuf_et_17.png"
+      },
+      {
+        "pagePath": "pages/match/match",
+        "text": "比赛",
+        "iconPath": "images/Buuf_et_62.png",
+        "selectedIconPath": "images/Buuf_et_62.png"
+      }
+    ]
+  }
+}
