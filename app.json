@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/room/room",
-    "pages/match/match"
+    "pages/match/match",
+    "pages/matchlist/matchlist"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +31,7 @@
         "selectedIconPath": "images/Buuf_et_17.png"
       },
       {
-        "pagePath": "pages/match/match",
+        "pagePath": "pages/matchlist/matchlist",
         "text": "比赛",
         "iconPath": "images/Buuf_et_62.png",
         "selectedIconPath": "images/Buuf_et_62.png"

@@ -1,19 +1,22 @@
 <!--room.wxml-->
 
 <scroll-view scroll-y="true" style="height:600px" bindscrolltolower="lower">
-  <block wx:for="{{rooms}}" wx:key="id" wx:for-index="roomkey">
+  <block class="room clear" wx:for="{{rooms}}" wx:key="id" wx:for-index="roomkey" wx:for-item="room">
   <view style="clear:both;" class="room">
     <view class="flex-wrap flex-row room-header">
-      <view class="flex-item room-title">{{item.title}}</view>
+      <view class="flex-item room-title">{{room.info.title}}</view>
       <view class="flex-item flex-wrap flex-col">
-        <view class="flex-item room-type tip-node">{{item.type}}</view>
-        <view class="flex-item room-status tip-node">{{item.status}}</view>
+        <view class="flex-item room-type tip-node">{{room.info.type}}</view>
+        <view class="flex-item room-status tip-node">{{room.info.status}}</view>
       </view>
-      <button size="mini" type="primary" class="flex-item">落座</button>
+      <button size="mini" type="primary" class="flex-item" data-room="{{room.info.id}}" wx:if="{{room.actions.sit == 1}}" bindtap="sit">落座</button>
+      <button size="mini" type="primary" class="flex-item" data-room="{{room.info.id}}" wx:if="{{room.actions.stand == 1}}" bindtap="stand">起身</button>
+      <button size="mini" type="primary" class="flex-item" data-room="{{room.info.id}}" wx:if="{{room.actions.start == 1}}" bindtap="start">开始</button>
+      <button size="mini" type="primary" class="flex-item" data-room="{{room.info.id}}" wx:if="{{room.actions.watch == 1}}" bindtap="watch">观战</button>
     </view>
     <view class="flex-wrap flex-col room-body">
       <view class="flex-item flex-wrap flex-row">
-        <view class="flex-item flex-wrap flex-row" wx:for="{{item.players}}" wx:for-item="player" wx:for-index="playerkey" wx:key="{{id}}">
+        <view class="flex-item flex-wrap flex-row" wx:for="{{room.players}}" wx:for-item="player" wx:for-index="playerkey" wx:key="{{id}}">
           <image class="flex-item userinfo-avatar" src="{{player.face}}" background-size="cover" data-room="{{roomkey}}" data-player="{{playerkey}}" bindtap="showNick"></image>
           <view class="flex-item userinfo-nick" wx:if="{{player.showNick == true}}">{{player.nick}}</view>
         </view>

@@ -9,13 +9,33 @@ Page({
     rooms: null
   },
 
+  send: function(obj) {
+    var text = JSON.stringify(obj);
+    wx.sendSocketMessage({
+      data: text,
+    });
+  },
+
+  login: function() {
+    var obj = {};
+    obj.op = "login";
+    obj.token = app.globalData.openid;
+    this.send(obj);
+  },
+  room_op: function(op, roomid) {
+    var obj = {};
+    obj.op = op;
+    obj.roomid = roomid;
+    this.send(obj);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.wuziyi.cc/?wechat/wuzi/rooms&app=sg',
+      url: 'https://www.wuziyi.cc/?wechat/wuzi/rooms&app=sg&token=' + app.globalData.openid,
       success: function (res) {
         console.debug(res.data);
         var data = res.data;
@@ -26,8 +46,22 @@ Page({
         }
         that.setData({
           rooms: data
-        })
+        });
+        wx.connectSocket({
+          url: 'wss://www.wuziyi.cc:19503',
+        });
       }
+    });
+
+    wx.onSocketOpen(function(res) {
+      that.login();
+    });
+    wx.onSocketMessage(function(res) {
+      var data = JSON.parse(res.data);
+      console.debug(data);
+      that.setData({
+        rooms: data.data
+      });
     });
   },
 
@@ -96,5 +130,23 @@ Page({
     this.setData({
       rooms: data
     })
+  },
+
+  sit: function(event) {
+    var roomid = event.currentTarget.dataset.room;
+    this.room_op("sit", roomid);
+  },
+  stand: function(event) {
+    var roomid = event.currentTarget.dataset.room;
+    this.room_op("stand", roomid);
+  },
+  start: function(event) {
+    var roomid = event.currentTarget.dataset.room;
+    this.room_op("start", roomid);
+  },
+  watch: function(event) {
+    var roomid = event.currentTarget.dataset.room;
+
   }
+
 })
