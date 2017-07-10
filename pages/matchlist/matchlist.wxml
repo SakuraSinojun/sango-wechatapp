@@ -1,5 +1,5 @@
 <!--matchlist.wxml-->
-<scroll-view scroll-y="true" style="height:600px" bindscrolltolower="lower">
+<scroll-view scroll-y="true" class="container" bindscrolltolower="lower">
   <view class="chessing flex-wrap flex-col">
     <view class="flex-item flex-center title">正在对弈</view>
     <view class="flex-item flex-wrap flex-row match" wx:for="{{matches.chessing}}" wx:for-item="match" wx:key="id">
@@ -9,6 +9,20 @@
         <image class="flex-item userinfo-avatar" src="{{player.face}}"  background-size="cover"></image>
         <view class="flex-item userinfo-nick">{{player.nick}}</view>
       </view>
+      <button size="mini" type="primary" class="flex-item" data-matchid="{{match.info.id}}" bindtap="join">继续</button>
+    </view>
+  </view>
+
+  <view class="completed flex-wrap flex-col">
+    <view class="flex-item flex-center title">已完成对局</view>
+    <view class="flex-item flex-wrap flex-row match" wx:for="{{matches.completed}}" wx:for-item="match" wx:key="id">
+      <view class="flex-item flex-center matchid">{{match.info.id}}</view>
+      <view class="flex-item flex-center matchtype">{{match.info.type}}</view>
+      <view class="flex-item flex-space-around players" wx:for="{{match.players}}" wx:for-item="player" wx:key="id">
+        <image class="flex-item userinfo-avatar" src="{{player.face}}"  background-size="cover"></image>
+        <view class="flex-item userinfo-nick">{{player.nick}}</view>
+      </view>
+      <button size="mini" type="primary" class="flex-item" data-matchid="{{match.info.id}}" bindtap="join">回顾</button>
     </view>
   </view>
 </scroll-view>

@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/room/room",
-    "pages/match/match",
-    "pages/matchlist/matchlist"
+    "pages/matchlist/matchlist",
+    "pages/wuzimatch/wuzimatch"
   ],
   "window": {
     "backgroundTextStyle": "light",

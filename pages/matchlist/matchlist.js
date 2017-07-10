@@ -74,5 +74,13 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  join: function(event) {
+    var mid = event.currentTarget.dataset.matchid;
+    console.debug(mid);
+    wx.navigateTo({
+      url: '../wuzimatch/wuzimatch?match=' + mid,
+    })
   }
 })

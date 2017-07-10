@@ -1,0 +1,10 @@
+<!--wuzimatch.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltolower="lower">
+
+  <block id="match">
+    <view class="board">
+      
+    </view>
+  </block>
+
+</scroll-view>

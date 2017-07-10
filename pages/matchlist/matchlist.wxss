@@ -1,33 +1,24 @@
 /* matchlist.wxss */
-#matches {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
 
 .title {
-    height: 50px;
-    line-height: 50px;
+    height: 100rpx;
+    line-height: 100rpx;
     text-align: center;
-    font-size: 20px;
+    font-size: 40rpx;
     border-bottom: solid 1px #ccc;
-    margin-top: 20px;
+    margin-top: 40rpx;
 }
 
 .match {
     width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-size: 16px;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 32rpx;
     text-align: center;
 }
 
 .matchid {
-    width: 30px;
+    width: 60rpx;
     text-align: center;
 }
 
@@ -35,9 +26,9 @@
 }
 
 .userinfo-avatar {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
   border-radius: 50%;
 }
 
@@ -46,6 +37,6 @@
 }
 
 .match button {
-    height: 35px;
-    margin-top: 7px;
+    height: 70rpx;
+    margin-top: 15rpx;
 }
